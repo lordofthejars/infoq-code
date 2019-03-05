@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.lordofhtejars</groupId>
+  <artifactId>diferencia-example</artifactId>
+  <name>Thorntail Example</name>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <properties>
+    <version.thorntail>2.2.1.Final</version.thorntail>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <version.junitJupiter>5.2.0</version.junitJupiter>
+    <version.diferencia>0.5.0</version.diferencia>
+    <version.assertj>3.11.1</version.assertj>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.thorntail</groupId>
+        <artifactId>bom-all</artifactId>
+        <version>${version.thorntail}</version>
+        <scope>import</scope>
+        <type>pom</type>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.lordofthejars.diferencia</groupId>
+      <artifactId>diferencia-java-junit5</artifactId>
+      <version>${version.diferencia}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.lordofthejars.diferencia</groupId>
+      <artifactId>diferencia-java-assertj</artifactId>
+      <version>${version.diferencia}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${version.junitJupiter}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-junit-jupiter</artifactId>
+        <version>2.24.5</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${version.assertj}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>3.9.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>jaxrs</artifactId>
+    </dependency><dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>jsonp</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>demo</finalName>
+
+    <plugins>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.22.1</version>
+      </plugin>
+      <plugin>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
+        <version>${version.thorntail}</version>
+
+        <executions>
+          <execution>
+            <goals>
+              <goal>package</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
