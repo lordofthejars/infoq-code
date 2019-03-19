@@ -28,7 +28,16 @@ public class ExternalWorldClockServiceGatewayTest {
 
     @Test
     public void should_get_time_from_external_service() {
-        
+
+        /**hoverfly.simulate(
+            SimulationSource.dsl(
+                service("http://worldclockapi.com")
+                    .get("/api/json/cet/now")
+                    .willReturn(success(OUTPUT, "application/json"))
+            )
+        );**/
+
+
         // Given
 
         final WorldClockServiceGateway worldClockServiceGateway = new ExternalWorldClockServiceGateway();
